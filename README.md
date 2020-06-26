@@ -120,21 +120,21 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | #  | Topic |
 | ---  | --- |
 |Question | In a JavaScript program, if we have an object, how can we **serialize it in JSON**? |
-| | *Enter your response here...*  |
+| | JSON.stringify({ x: 5, y: 6 })  |
 |Question | What is **npm**?  |
-| | *Enter your response here...*  |
+| | The node.js package manager, allows to install all kind of packages based on node  |
 |Question | What is the `npm install` command and what is the purpose of the `--save` flag?  |
-| | *Enter your response here...*  |
+| | `npm install` allows you to install a nodejs package. <br>The `--save` flag adds the package to the dependecies list in package.json  |
 |Question | How can we use the `https://www.npmjs.com/` web site?  |
-| | *Enter your response here...*  |
+| | We can search for packages before installing them with above command  |
 |Question | In JavaScript, how can we **generate a UUID** compliant with RFC4122? |
-| | *Enter your response here...*  |
+| | By installing the `uuid` package, then import the package with `import { v1 as uuidv1 } from 'uuid';` then generate the uuid with `uuidv1();`  |
 |Question | In Node.js, how can we execute a function on a **periodic** basis? |
-| | *Enter your response here...*  |
+| | by using `function intervalFunc() {`<br>`  //something `<br>` } `<br>` setInterval(intervalFunc, 1500);`  |
 |Question | In Node.js, how can we **emit UDP datagrams**? |
-| | *Enter your response here...*  |
+| | by using the `dgram` package. First import it : `var udp = require('dgram');` <br> then we need to create a scoket with `var server = udp.createSocket('udp4');`<br> Then we send `server.send(msg,info.port,'localhost',function(error){...}` and managin the error in the `...` |
 |Question | In Node.js, how can we **access the command line arguments**? |
-| | *Enter your response here...*  |
+| | 'use strict'; <br> for (let j = 0; j < process.argv.length; j++) { <br>    console.log(j + ' -> ' + (process.argv[j])); <br> }|
 
 
 ## Task 3: package the "musician" app in a Docker image
