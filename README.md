@@ -191,7 +191,7 @@ socket.on("listening", function() {
 |Question | How can we use the `Moment.js` npm module to help us with **date manipulations** and formatting?  |
 | | *Enter your response here...* |
 |Question | When and how do we **get rid of inactive players**?  |
-| | *Enter your response here...* |
+| | We get rid of inactive players as soon as they are inactive. To detect that musician are inactive, we compare the timestamps between the saved value and the current time stamp, if it's greater then 5 second, we get rid of the musician |
 |Question | How do I implement a **simple TCP server** in Node.js?  |
 | | *Enter your response here...* |
 
@@ -201,7 +201,7 @@ socket.on("listening", function() {
 | #  | Topic |
 | ---  | --- |
 |Question | How do we validate that the whole system works, once we have built our Docker image? |
-| | *Enter your response here...* |
+| | By running the validate.sh script located in the top-level directory.<br>When this works, we then create a auditor, require active musician from it with tcp query. then add some musician, let them play and ask for active musician. <br>Then stops the musicians, wait for 5 seconds and ask for active musician |
 
 
 ## Constraints
