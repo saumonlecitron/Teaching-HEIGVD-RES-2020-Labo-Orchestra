@@ -171,25 +171,32 @@ We qill query those data structures when we want to get all active musician, by 
 | #  | Topic |
 | ---  | ---  |
 |Question | With Node.js, how can we listen for UDP datagrams in a multicast group? |
-| | const PORT = 6969;<br>
+
+``` 
+const PORT = 6969; <br>
 const MULTICAST_ADDR; <br>
 <br>
-const dgram = require("dgram");<br>
-const process = require("process");<br>
+const dgram = require("dgram"); <br>
+const process = require("process"); <br>
 
-const socket = dgram.createSocket({ type: "udp4", reuseAddr: true });<br>
+const socket = dgram.createSocket({ type: "udp4", reuseAddr: true }); <br>
 
-socket.bind(PORT);<br>
-socket.on("listening", function() {<br>
-  socket.addMembership(MULTICAST_ADDR);<br>
-  setInterval(sendMessage, 2500);<br>
-  const address = socket.address();<br>
-  console.log(<br>
-    `UDP socket listening on ${address.address}:${address.port} pid: ${<br>
+socket.bind(PORT); <br>
+socket.on("listening", function() { <br>
+  socket.addMembership(MULTICAST_ADDR); <br>
+  setInterval(sendMessage, 2500); <br>
+  const address = socket.address(); <br>
+  console.log( <br>
+    UDP socket listening on ${address.address}:${address.port} pid: ${<br>
       process.pid<br>
-    }`<br>
-  );<br>
-});<br>  |
+    } <br>
+  ); <br>
+}); <br>
+```
+
+
+| #  | Topic |
+| ---  | --- |
 |Question | How can we use the `Map` built-in object introduced in ECMAScript 6 to implement a **dictionary**?  |
 | | *Enter your response here...* |
 |Question | How can we use the `Moment.js` npm module to help us with **date manipulations** and formatting?  |
