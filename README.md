@@ -106,11 +106,14 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 |Question | How can we represent the system in an **architecture diagram**, which gives information both about the Docker containers, the communication protocols and the commands? |
 | | *Insert your diagram here...* |
 |Question | Who is going to **send UDP datagrams** and **when**? |
-| | *Enter your response here...* |
+| | * Musician, continuously as multicast to say it plays sounds on port <x>
+    * Musician, continuously as unicast on port <x> where the sounds are |
 |Question | Who is going to **listen for UDP datagrams** and what should happen when a datagram is received? |
-| | *Enter your response here...* |
+| | * Auditor, to know there is a musician who is playing on port <x>, then auditor will listen (if he like the musician) on port <x> to get the musician
+    * Auditor, on port <x> to enjoy the music, then he'll chill |
 |Question | What **payload** should we put in the UDP datagrams? |
-| | *Enter your response here...* |
+| | * instrument, port<x>
+    * the sound |
 |Question | What **data structures** do we need in the UDP sender and receiver? When will we update these data structures? When will we query these data structures? |
 | | *Enter your response here...* |
 
