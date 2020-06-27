@@ -106,24 +106,13 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 |Question | How can we represent the system in an **architecture diagram**, which gives information both about the Docker containers, the communication protocols and the commands? |
 | | *Insert your diagram here...* |
 |Question | Who is going to **send UDP datagrams** and **when**? |
-| | Musician, continuously as multicast to say it plays sounds on port "x" <br>
-  Musician, continuously as unicast on port "x" where the sounds are 
-  |
+| | Musician, continuously as multicast to say it plays sounds on port "x" <br>Musician, continuously as unicast on port "x" where the sounds are |
 |Question | Who is going to **listen for UDP datagrams** and what should happen when a datagram is received? |
-| | Auditor, to know there is a musician who is playing on port "x", then auditor will listen (if he like the musician) on port "x" to get the musician<br>
-    Auditor, on port "x" to enjoy the music, then he'll chill |
+| | Auditor, to know there is a musician who is playing on port "x", then auditor will listen (if he like the musician) on port "x" to get the musician<br>Auditor, on port "x" to enjoy the music, then he'll chill |
 |Question | What **payload** should we put in the UDP datagrams? |
-| | instrument, port "x" <br>
-    the sound |
+| | instrument, port "x" <br>the sound |
 |Question | What **data structures** do we need in the UDP sender and receiver? When will we update these data structures? When will we query these data structures? |
-| | The UDP senders needs a stream <br>
-We will update it every second to send a note<br>
-We will query this data structure when we receive it's representation on client side.<br>
-<br>
-The UDP receiver needs a list of musicians, with the timestamp of last heard sound from it. <br>
-We will update this structure every time we receive a sound from a musician.<br>
-We qill query those data structures when we want to get all active musician, by comparing the current time and the last time if the musician is active or not.<br>
- |
+| | The UDP senders needs a stream <br>We will update it every second to send a note<br>We will query this data structure when we receive it's representation on client side.<br><br>The UDP receiver needs a list of musicians, with the timestamp of last heard sound from it. <br>We will update this structure every time we receive a sound from a musician.<br>We qill query those data structures when we want to get all active musician, by comparing the current time and the last time if the musician is active or not.<br> |
 
 
 ## Task 2: implement a "musician" Node.js application
@@ -173,25 +162,25 @@ We qill query those data structures when we want to get all active musician, by 
 |Question | With Node.js, how can we listen for UDP datagrams in a multicast group? |
 
 ``` 
-const PORT = 6969; <br>
-const MULTICAST_ADDR; <br>
-<br>
-const dgram = require("dgram"); <br>
-const process = require("process"); <br>
+const PORT = 6969; 
+const MULTICAST_ADDR; 
 
-const socket = dgram.createSocket({ type: "udp4", reuseAddr: true }); <br>
+const dgram = require("dgram"); 
+const process = require("process"); 
 
-socket.bind(PORT); <br>
-socket.on("listening", function() { <br>
-  socket.addMembership(MULTICAST_ADDR); <br>
-  setInterval(sendMessage, 2500); <br>
-  const address = socket.address(); <br>
-  console.log( <br>
-    UDP socket listening on ${address.address}:${address.port} pid: ${<br>
-      process.pid<br>
-    } <br>
-  ); <br>
-}); <br>
+const socket = dgram.createSocket({ type: "udp4", reuseAddr: true }); 
+
+socket.bind(PORT); 
+socket.on("listening", function() { 
+  socket.addMembership(MULTICAST_ADDR); 
+  setInterval(sendMessage, 2500); 
+  const address = socket.address(); 
+  console.log( 
+    UDP socket listening on ${address.address}:${address.port} pid: ${
+      process.pid
+    } 
+  ); 
+}); 
 ```
 
 
